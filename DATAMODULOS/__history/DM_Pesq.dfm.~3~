@@ -1,0 +1,53 @@
+object DMPesq: TDMPesq
+  OldCreateOrder = False
+  Height = 321
+  Width = 475
+  object dspGeral: TDataSetProvider
+    DataSet = sdsGeral
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 120
+    Top = 24
+  end
+  object cdsPesqCliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    CommandText = 'Select * from clientes'
+    Params = <>
+    ProviderName = 'dspGeral'
+    Left = 40
+    Top = 120
+    object cdsPesqClienteCDCLIENTE: TIntegerField
+      FieldName = 'CDCLIENTE'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsPesqClienteDCCLIENTE: TStringField
+      FieldName = 'DCCLIENTE'
+      Size = 30
+    end
+    object cdsPesqClienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 40
+    end
+    object cdsPesqClienteBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+    end
+    object cdsPesqClienteCIDADE: TStringField
+      FieldName = 'CIDADE'
+    end
+    object cdsPesqClienteCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+  end
+  object sdsGeral: TSQLDataSet
+    SchemaName = 'sysdba'
+    CommandText = 'Select * from clientes'
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DM.SQLConnection1
+    Left = 40
+    Top = 24
+  end
+end

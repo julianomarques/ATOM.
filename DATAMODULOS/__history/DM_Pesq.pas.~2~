@@ -1,0 +1,31 @@
+unit DM_Pesq;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient, Data.DB,
+  Data.SqlExpr, Datasnap.Provider;
+
+type
+  TDataModule1 = class(TDataModule)
+    DSPGeral: TDataSetProvider;
+    SDSGeral: TSQLDataSet;
+    CDSPesqcliente: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+uses DM_F;
+
+{$R *.dfm}
+
+end.

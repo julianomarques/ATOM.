@@ -1,0 +1,25 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 321
+  Width = 475
+  object DSPGeral: TDataSetProvider
+    DataSet = CDSPesqcliente
+    Left = 168
+    Top = 32
+  end
+  object SDSGeral: TSQLDataSet
+    DbxCommandType = 'Dbx.SQL'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DM.SQLConnection1
+    Left = 56
+    Top = 32
+  end
+  object CDSPesqcliente: TClientDataSet
+    Aggregates = <>
+    CommandText = 'select * from cliente where'
+    Params = <>
+    Left = 64
+    Top = 112
+  end
+end

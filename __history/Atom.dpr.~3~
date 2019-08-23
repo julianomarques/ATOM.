@@ -1,0 +1,18 @@
+program Atom;
+
+uses
+  Vcl.Forms,
+  A_menu_F in 'A_menu_F.pas' {Form1},
+  DM_F in 'DATAMODULOS\DM_F.pas' {DM: TDataModule},
+  U_FrmFornecedores in 'FORMULARIOS\CADASTROS\U_FrmFornecedores.pas' {FrmFornecedores};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TFrmFornecedores, FrmFornecedores);
+  Application.Run;
+end.

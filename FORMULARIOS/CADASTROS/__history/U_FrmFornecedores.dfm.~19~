@@ -1,0 +1,284 @@
+object FrmFornecedores: TFrmFornecedores
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Fornecedores'
+  ClientHeight = 423
+  ClientWidth = 595
+  Color = clHighlight
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Lcodigofornecedor: TLabel
+    Left = 8
+    Top = 0
+    Width = 106
+    Height = 13
+    Caption = 'Codigo do Fornecedor'
+  end
+  object Ldescricaofornecedor: TLabel
+    Left = 132
+    Top = 0
+    Width = 119
+    Height = 13
+    Caption = 'Descri'#231#227'o do Fornecedor'
+  end
+  object Lendereco: TLabel
+    Left = 8
+    Top = 43
+    Width = 45
+    Height = 13
+    Caption = 'Endere'#231'o'
+  end
+  object Lbairro: TLabel
+    Left = 8
+    Top = 81
+    Width = 28
+    Height = 13
+    Caption = 'Bairro'
+  end
+  object Lcidade: TLabel
+    Left = 288
+    Top = 81
+    Width = 33
+    Height = 13
+    Caption = 'Cidade'
+  end
+  object Lcep: TLabel
+    Left = 209
+    Top = 127
+    Width = 19
+    Height = 13
+    Caption = 'CEP'
+  end
+  object Ltelefone: TLabel
+    Left = 8
+    Top = 127
+    Width = 42
+    Height = 13
+    Caption = 'Telefone'
+  end
+  object DBGrid1: TDBGrid
+    Left = 18
+    Top = 165
+    Width = 569
+    Height = 124
+    Color = clLime
+    DataSource = DM.DSFornecedores
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CDFORNECEDOR'
+        Title.Caption = 'COD. DO FORNECEDOR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DCFORNECEDOR'
+        Title.Caption = 'DESCRI'#199#195'O DO FORNECEDOR'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ENDERECO'
+        Title.Caption = 'ENDERE'#199'O'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'BAIRRO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CIDADE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'TELEFONE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CEP'
+        Visible = True
+      end>
+  end
+  object Btinserir: TButton
+    Left = 350
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Inserir'
+    TabOrder = 1
+    OnClick = BtinserirClick
+  end
+  object Btalterar: TButton
+    Left = 431
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Alterar'
+    TabOrder = 2
+    OnClick = BtalterarClick
+  end
+  object Btexcluir: TButton
+    Left = 512
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Excluir'
+    TabOrder = 3
+    OnClick = BtexcluirClick
+  end
+  object Btgravar: TButton
+    Left = 352
+    Top = 365
+    Width = 75
+    Height = 25
+    Caption = 'Gravar'
+    TabOrder = 4
+    OnClick = BtgravarClick
+  end
+  object Btcancelar: TButton
+    Left = 433
+    Top = 365
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 5
+    OnClick = BtcancelarClick
+  end
+  object Fcodigo: TDBEdit
+    Left = 8
+    Top = 19
+    Width = 106
+    Height = 23
+    DataField = 'CDFORNECEDOR'
+    DataSource = DM.DSFornecedores
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -12
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
+  end
+  object Fdescricaofornecedor: TDBEdit
+    Left = 132
+    Top = 19
+    Width = 429
+    Height = 21
+    DataField = 'DCFORNECEDOR'
+    DataSource = DM.DSFornecedores
+    TabOrder = 7
+  end
+  object Fendereco: TDBEdit
+    Left = 8
+    Top = 62
+    Width = 553
+    Height = 21
+    DataField = 'ENDERECO'
+    DataSource = DM.DSFornecedores
+    TabOrder = 8
+  end
+  object Fbairro: TDBEdit
+    Left = 8
+    Top = 100
+    Width = 234
+    Height = 21
+    DataField = 'BAIRRO'
+    DataSource = DM.DSFornecedores
+    TabOrder = 9
+  end
+  object Fcidade: TDBEdit
+    Left = 288
+    Top = 100
+    Width = 273
+    Height = 21
+    DataField = 'CIDADE'
+    DataSource = DM.DSFornecedores
+    TabOrder = 10
+  end
+  object Ftelefone: TDBEdit
+    Left = 8
+    Top = 138
+    Width = 185
+    Height = 21
+    DataField = 'TELEFONE'
+    DataSource = DM.DSFornecedores
+    TabOrder = 11
+  end
+  object Fcep: TDBEdit
+    Left = 209
+    Top = 138
+    Width = 168
+    Height = 21
+    DataField = 'CEP'
+    DataSource = DM.DSFornecedores
+    TabOrder = 12
+  end
+  object Btsair: TButton
+    Left = 512
+    Top = 365
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 13
+    OnClick = BtsairClick
+  end
+  object Btprimeiro: TButton
+    Left = 3
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Primeiro'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 14
+    OnClick = BtprimeiroClick
+  end
+  object Btanterior: TButton
+    Left = 84
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Anterior'
+    TabOrder = 15
+    OnClick = BtanteriorClick
+  end
+  object Btproximo: TButton
+    Left = 165
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Pr'#243'ximo'
+    TabOrder = 16
+    OnClick = BtproximoClick
+  end
+  object Btultimo: TButton
+    Left = 246
+    Top = 334
+    Width = 75
+    Height = 25
+    Caption = 'Ultimo'
+    TabOrder = 17
+    OnClick = BtultimoClick
+  end
+end

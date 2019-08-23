@@ -1,0 +1,241 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 451
+  Width = 619
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'IBCONNECTION'
+    DriverName = 'Firebird'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'dbxfb.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverUnit=Data.DBXFirebird'
+      
+        'DriverPackageLoader=TDBXDynalinkDriverLoader,DbxCommonDriver160.' +
+        'bpl'
+      
+        'DriverAssemblyLoader=Borland.Data.TDBXDynalinkDriverLoader,Borla' +
+        'nd.Data.DbxCommonDriver,Version=16.0.0.0,Culture=neutral,PublicK' +
+        'eyToken=91d62ebb5b0d1b1b'
+      
+        'MetaDataPackageLoader=TDBXFirebirdMetaDataCommandFactory,DbxFire' +
+        'birdDriver160.bpl'
+      
+        'MetaDataAssemblyLoader=Borland.Data.TDBXFirebirdMetaDataCommandF' +
+        'actory,Borland.Data.DbxFirebirdDriver,Version=16.0.0.0,Culture=n' +
+        'eutral,PublicKeyToken=91d62ebb5b0d1b1b'
+      'GetDriverFunc=getSQLDriverINTERBASE'
+      'LibraryName=dbxfb.dll'
+      'LibraryNameOsx=libsqlfb.dylib'
+      'VendorLib=fbclient.dll'
+      'VendorLibWin64=fbclient.dll'
+      'VendorLibOsx=/Library/Frameworks/Firebird.framework/Firebird'
+      'Database=C:\ATOM\BANCO\VENDA.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'Role=RoleName'
+      'MaxBlobSize=-1'
+      'LocaleCode=0000'
+      'IsolationLevel=ReadCommitted'
+      'SQLDialect=3'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'TrimChar=False'
+      'BlobSize=-1'
+      'ErrorResourceFile='
+      'RoleName=RoleName'
+      'ServerCharSet='
+      'Trim Char=False')
+    VendorLib = 'fbclient.dll'
+    Connected = True
+    Left = 80
+    Top = 8
+  end
+  object DSFornecedores: TDataSource
+    DataSet = SDSFornecedores
+    Left = 280
+    Top = 8
+  end
+  object SDSFornecedores: TSimpleDataSet
+    Active = True
+    Aggregates = <>
+    Connection = SQLConnection1
+    DataSet.CommandText = 'SELECT * FROM FORNECEDORES'
+    DataSet.DataSource = DSFornecedores
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    AfterPost = SDSFornecedoresAfterPost
+    AfterDelete = SDSFornecedoresAfterDelete
+    OnNewRecord = SDSFornecedoresNewRecord
+    Left = 184
+    Top = 8
+    object SDSFornecedoresCDFORNECEDOR: TIntegerField
+      FieldName = 'CDFORNECEDOR'
+      Required = True
+    end
+    object SDSFornecedoresDCFORNECEDOR: TStringField
+      FieldName = 'DCFORNECEDOR'
+      Size = 30
+    end
+    object SDSFornecedoresENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 40
+    end
+    object SDSFornecedoresBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+    end
+    object SDSFornecedoresCIDADE: TStringField
+      FieldName = 'CIDADE'
+    end
+    object SDSFornecedoresTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 12
+    end
+    object SDSFornecedoresCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+  end
+  object SDSClientes: TSimpleDataSet
+    Active = True
+    Aggregates = <>
+    Connection = SQLConnection1
+    DataSet.CommandText = 'SELECT * FROM CLIENTES'
+    DataSet.DataSource = DSClientes
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    AfterPost = SDSClientesAfterPost
+    AfterDelete = SDSClientesAfterDelete
+    OnNewRecord = SDSClientesNewRecord
+    Left = 184
+    Top = 80
+    object SDSClientesCDCLIENTE: TIntegerField
+      FieldName = 'CDCLIENTE'
+      Required = True
+    end
+    object SDSClientesDCCLIENTE: TStringField
+      FieldName = 'DCCLIENTE'
+      Size = 30
+    end
+    object SDSClientesENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 40
+    end
+    object SDSClientesBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+    end
+    object SDSClientesCIDADE: TStringField
+      FieldName = 'CIDADE'
+    end
+    object SDSClientesCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+  end
+  object DSClientes: TDataSource
+    DataSet = SDSClientes
+    Left = 280
+    Top = 80
+  end
+  object DSVendedores: TDataSource
+    DataSet = SDSVendedores
+    Left = 280
+    Top = 152
+  end
+  object SDSVendedores: TSimpleDataSet
+    Active = True
+    Aggregates = <>
+    Connection = SQLConnection1
+    DataSet.CommandText = 'SELECT * FROM VENDEDORES'
+    DataSet.DataSource = DSVendedores
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    AfterPost = SDSVendedoresAfterPost
+    AfterDelete = SDSVendedoresAfterDelete
+    OnNewRecord = SDSVendedoresNewRecord
+    Left = 184
+    Top = 152
+    object SDSVendedoresCDVENDEDOR: TIntegerField
+      FieldName = 'CDVENDEDOR'
+      Required = True
+    end
+    object SDSVendedoresDCVENDEDOR: TStringField
+      FieldName = 'DCVENDEDOR'
+      Size = 30
+    end
+  end
+  object SDSProdutos: TSimpleDataSet
+    Active = True
+    Aggregates = <>
+    Connection = SQLConnection1
+    DataSet.CommandText = 'select * from PRODUTOS'
+    DataSet.DataSource = DSProdutos
+    DataSet.MaxBlobSize = -1
+    DataSet.Params = <>
+    Params = <>
+    AfterPost = SDSProdutosAfterPost
+    AfterDelete = SDSProdutosAfterDelete
+    OnCalcFields = SDSProdutosCalcFields
+    OnNewRecord = SDSProdutosNewRecord
+    Left = 184
+    Top = 208
+    object SDSProdutosCDPRODUTO: TIntegerField
+      FieldName = 'CDPRODUTO'
+      Required = True
+    end
+    object SDSProdutosDCPRODUTO: TStringField
+      FieldName = 'DCPRODUTO'
+      Size = 30
+    end
+    object SDSProdutosVLPRODUTO: TFMTBCDField
+      FieldName = 'VLPRODUTO'
+      DisplayFormat = '#,##0.00'
+      EditFormat = '#,##0.00'
+      Precision = 18
+      Size = 2
+    end
+    object SDSProdutosQTESTOQUE: TFMTBCDField
+      FieldName = 'QTESTOQUE'
+      Precision = 18
+      Size = 2
+    end
+    object SDSProdutosQTMINIMA: TFMTBCDField
+      FieldName = 'QTMINIMA'
+      Precision = 18
+      Size = 2
+    end
+    object SDSProdutossugestaocompra: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'sugestaocompra'
+      Calculated = True
+    end
+    object SDSProdutosFORNECEDORES_CDFORNECEDOR: TIntegerField
+      FieldName = 'FORNECEDORES_CDFORNECEDOR'
+      Required = True
+    end
+    object SDSProdutosdescricaofornecedor: TStringField
+      DisplayLabel = 'DESC. FORNECEDOR'
+      FieldKind = fkLookup
+      FieldName = 'descricaofornecedor'
+      LookupDataSet = SDSFornecedores
+      LookupKeyFields = 'CDFORNECEDOR'
+      LookupResultField = 'DCFORNECEDOR'
+      KeyFields = 'FORNECEDORES_CDFORNECEDOR'
+      Size = 30
+      Lookup = True
+    end
+    object SDSProdutosPRODUTOVALOR: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'PRODUTOVALOR'
+      Calculated = True
+    end
+  end
+  object DSProdutos: TDataSource
+    DataSet = SDSProdutos
+    Left = 280
+    Top = 208
+  end
+end

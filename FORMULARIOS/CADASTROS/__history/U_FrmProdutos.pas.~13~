@@ -1,0 +1,146 @@
+unit U_FrmProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons, Data.DB, Data.SqlExpr,
+  Vcl.Imaging.pngimage;
+
+type
+  TFrmProdutos = class(TForm)
+    DBGrid1: TDBGrid;
+    DBcodproduto: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    Btinserir: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    BitBtn1: TBitBtn;
+    edtpesqproduto: TEdit;
+    cbpesqproduto: TComboBox;
+    DsProdutopesq: TDataSource;
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    LValor: TLabel;
+    Lopcaoselect: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label3: TLabel;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    Label8: TLabel;
+    procedure BtinserirClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    //procedure PesquisarSQl (txt: string);
+  private
+    _pesquisa : string;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmProdutos: TFrmProdutos;
+
+implementation
+
+{$R *.dfm}
+
+uses DM_F, A_menu_F, DM_Pesq;
+
+procedure TFrmProdutos.BitBtn1Click(Sender: TObject);
+begin
+   _pesquisa := cbpesqproduto.Text + ' like ' + QuotedStr('%' + edtpesqproduto.Text + '%');
+
+   //PesquisarSQl('select * from produtos where ');
+end;
+
+procedure TFrmProdutos.BtinserirClick(Sender: TObject);
+begin
+  Dm.SDSProdutos.Append;
+  DBcodproduto.SetFocus;
+end;
+
+procedure TFrmProdutos.Button10Click(Sender: TObject);
+begin
+  Dm.SDSProdutos.Last;
+end;
+
+procedure TFrmProdutos.Button2Click(Sender: TObject);
+begin
+  dm.SDSProdutos.Edit
+end;
+
+procedure TFrmProdutos.Button3Click(Sender: TObject);
+begin
+
+if MessageBox(0,'Deseja realmente excluir?','Excluindo …',mb_YesNo)=idYes
+then
+  Dm.SDSProdutos.Delete;
+end;
+
+procedure TFrmProdutos.Button4Click(Sender: TObject);
+begin
+  dm.SDSProdutos.Post;
+end;
+
+procedure TFrmProdutos.Button5Click(Sender: TObject);
+begin
+  dm.SDSProdutos.Cancel;
+end;
+
+procedure TFrmProdutos.Button6Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TFrmProdutos.Button7Click(Sender: TObject);
+begin
+  Dm.SDSProdutos.First;
+end;
+
+procedure TFrmProdutos.Button8Click(Sender: TObject);
+begin
+  Dm.SDSProdutos.Prior;
+end;
+
+procedure TFrmProdutos.Button9Click(Sender: TObject);
+begin
+  Dm.SDSProdutos.Next;
+end;
+
+procedure TFrmProdutos.FormShow(Sender: TObject);
+  var I : Integer;
+begin
+  for I := 0 to DsProdutopesq.DataSet.FieldCount -1 do
+  begin
+    if DsProdutopesq.DataSet.Fields[I].DataType in [ftString, ftWideString, ftInteger, ftFixedChar] then
+     cbpesqproduto.Items.Add(DsProdutopesq.dataset.Fields[I].FieldName);
+end;
+end;
+end.

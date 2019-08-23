@@ -1,0 +1,316 @@
+﻿object frmClientes: TfrmClientes
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 404
+  ClientWidth = 678
+  Color = clMenuHighlight
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ccliente: TLabel
+    Left = 16
+    Top = 8
+    Width = 74
+    Height = 13
+    Caption = 'Cod. do Cliente'
+  end
+  object Endereço: TLabel
+    Left = 16
+    Top = 51
+    Width = 45
+    Height = 13
+    Caption = 'Endere'#231'o'
+  end
+  object Label1: TLabel
+    Left = 104
+    Top = 8
+    Width = 97
+    Height = 13
+    Caption = 'Descri'#231#227'o do Cliente'
+  end
+  object Label2: TLabel
+    Left = 287
+    Top = 51
+    Width = 28
+    Height = 13
+    Caption = 'Bairro'
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 91
+    Width = 33
+    Height = 13
+    Caption = 'Cidade'
+  end
+  object LCEP: TLabel
+    Left = 367
+    Top = 91
+    Width = 19
+    Height = 13
+    Caption = 'CEP'
+  end
+  object Label4: TLabel
+    Left = 392
+    Top = 4
+    Width = 37
+    Height = 13
+    Caption = 'Campo:'
+  end
+  object Label5: TLabel
+    Left = 536
+    Top = 8
+    Width = 45
+    Height = 13
+    Caption = 'Procurar:'
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Top = 131
+    Width = 641
+    Height = 190
+    DataSource = DsPesq
+    FixedColor = clLime
+    GradientEndColor = clGray
+    GradientStartColor = clHighlight
+    Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    OnDrawColumnCell = DBGrid1DrawColumnCell
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'CDCLIENTE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'DCCLIENTE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'ENDERECO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'BAIRRO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CIDADE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CEP'
+        Visible = True
+      end>
+  end
+  object Btinserir: TButton
+    Left = 425
+    Top = 336
+    Width = 75
+    Height = 25
+    Caption = 'Inserir'
+    TabOrder = 1
+    OnClick = BtinserirClick
+  end
+  object Btalterar: TButton
+    Left = 506
+    Top = 336
+    Width = 75
+    Height = 25
+    Caption = 'Alterar'
+    TabOrder = 2
+    OnClick = BtalterarClick
+  end
+  object Btgravar: TButton
+    Left = 425
+    Top = 367
+    Width = 75
+    Height = 25
+    Caption = 'Gravar'
+    TabOrder = 3
+    OnClick = BtgravarClick
+  end
+  object Btexcluir: TButton
+    Left = 587
+    Top = 336
+    Width = 75
+    Height = 25
+    Caption = 'Excluir'
+    TabOrder = 4
+    OnClick = BtexcluirClick
+  end
+  object Btcancelar: TButton
+    Left = 506
+    Top = 367
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 5
+    OnClick = BtcancelarClick
+  end
+  object Btsair: TButton
+    Left = 587
+    Top = 367
+    Width = 75
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 6
+    OnClick = BtsairClick
+  end
+  object codcliente: TDBEdit
+    Left = 16
+    Top = 24
+    Width = 74
+    Height = 21
+    DataField = 'CDCLIENTE'
+    DataSource = DM.DSClientes
+    TabOrder = 7
+  end
+  object Cdesccliente: TDBEdit
+    Left = 96
+    Top = 24
+    Width = 283
+    Height = 21
+    CharCase = ecUpperCase
+    DataField = 'DCCLIENTE'
+    DataSource = DM.DSClientes
+    TabOrder = 8
+  end
+  object Cednderecocliente: TDBEdit
+    Left = 16
+    Top = 64
+    Width = 265
+    Height = 21
+    CharCase = ecUpperCase
+    DataField = 'ENDERECO'
+    DataSource = DM.DSClientes
+    TabOrder = 9
+  end
+  object Cbairro: TDBEdit
+    Left = 287
+    Top = 64
+    Width = 186
+    Height = 21
+    CharCase = ecUpperCase
+    DataField = 'BAIRRO'
+    DataSource = DM.DSClientes
+    TabOrder = 10
+  end
+  object Ccidade: TDBEdit
+    Left = 16
+    Top = 104
+    Width = 345
+    Height = 21
+    DataField = 'CIDADE'
+    DataSource = DM.DSClientes
+    TabOrder = 11
+  end
+  object DBEdit1: TDBEdit
+    Left = 367
+    Top = 104
+    Width = 290
+    Height = 21
+    DataField = 'CEP'
+    DataSource = DM.DSClientes
+    TabOrder = 12
+  end
+  object Btprimeiro: TButton
+    Left = 43
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'Primeiro'
+    TabOrder = 13
+    OnClick = BtprimeiroClick
+  end
+  object Btanterior: TButton
+    Left = 124
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'Anterior'
+    TabOrder = 14
+    OnClick = BtanteriorClick
+  end
+  object Btproximo: TButton
+    Left = 205
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'Pr'#243'ximo'
+    TabOrder = 15
+    OnClick = BtproximoClick
+  end
+  object Btultimo: TButton
+    Left = 286
+    Top = 352
+    Width = 75
+    Height = 25
+    Caption = 'Ultimo'
+    TabOrder = 16
+    OnClick = BtultimoClick
+  end
+  object cbcampo: TComboBox
+    Left = 385
+    Top = 23
+    Width = 145
+    Height = 21
+    TabOrder = 17
+  end
+  object Edtpesquisar: TEdit
+    Left = 536
+    Top = 24
+    Width = 121
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 18
+  end
+  object Btpesquisa: TButton
+    Left = 536
+    Top = 73
+    Width = 121
+    Height = 25
+    Caption = 'Pesquisar'
+    TabOrder = 19
+    OnClick = BtpesquisaClick
+  end
+  object RBinicio: TRadioButton
+    Left = 536
+    Top = 50
+    Width = 43
+    Height = 17
+    Caption = 'Inicio'
+    Checked = True
+    TabOrder = 20
+    TabStop = True
+  end
+  object RBcontem: TRadioButton
+    Left = 596
+    Top = 51
+    Width = 61
+    Height = 17
+    Caption = 'Contem'
+    TabOrder = 21
+  end
+  object DsPesq: TDataSource
+    DataSet = DMPesq.cdsPesqCliente
+    Left = 488
+    Top = 56
+  end
+end
